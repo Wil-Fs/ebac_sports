@@ -15,11 +15,11 @@ const favoritoSlice = createSlice({
 	reducers: {
 		favoritar: (state, action: PayloadAction<Produto>) => {
 			const favorito = action.payload;
-			const favoritosSemProduto = state.itens.filter(
-				(products) => products.id !== favorito.id
-			);
+			// const favoritosSemProduto = state.itens.filter(
+			// 	(products) => products.id !== favorito.id
+			// );
 			state.itens.find((product) => product.id === favorito.id)
-				? favoritosSemProduto.push(favorito)
+				? state.itens.pop()
 				: state.itens.push(favorito);
 		}
 	}
